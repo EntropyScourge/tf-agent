@@ -142,6 +142,13 @@ resource "google_dialogflow_cx_entity_type" "product_entity" {
   }
 }
 
+# Create a version
+resource "google_dialogflow_cx_version" "version_1" {
+  parent       = google_dialogflow_cx_flow.default_flow.id
+  display_name = "Version 1.0"
+  description  = "Initial version of the conversational agent"
+}
+
 # Create environment for testing
 resource "google_dialogflow_cx_environment" "development" {
   parent       = google_dialogflow_cx_agent.agent.id
@@ -151,11 +158,4 @@ resource "google_dialogflow_cx_environment" "development" {
   version_configs {
     version = google_dialogflow_cx_version.version_1.id
   }
-}
-
-# Create a version
-resource "google_dialogflow_cx_version" "version_1" {
-  parent       = google_dialogflow_cx_flow.default_flow.id
-  display_name = "Version 1.0"
-  description  = "Initial version of the conversational agent"
 }
