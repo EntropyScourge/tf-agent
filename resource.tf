@@ -56,7 +56,7 @@ resource "google_dialogflow_cx_agent" "agent" {
 # Create a default flow (Start Page)
 resource "google_dialogflow_cx_flow" "default_flow" {
   parent       = google_dialogflow_cx_agent.agent.id
-  display_name = "Default Start Flow"
+  display_name = "Default Start Flow 2"
   description  = "Default flow for the conversational agent"
   
   nlu_settings {
